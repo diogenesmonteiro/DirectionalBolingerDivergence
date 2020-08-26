@@ -38,41 +38,41 @@ namespace NinjaTrader.NinjaScript.Strategies
 				Description					= @"Enter the description for your new custom Strategy here.";
 				Name						= "DirectionalBolingerDivergenceCode";
 				Calculate					= Calculate.OnBarClose;
-				EntriesPerDirection			= 1;
-				EntryHandling				= EntryHandling.AllEntries;
-				IsExitOnSessionCloseStrategy= true;
-				ExitOnSessionCloseSeconds	= 30;
-				IsFillLimitOnTouch			= false;
-				MaximumBarsLookBack			= MaximumBarsLookBack.TwoHundredFiftySix;
-				OrderFillResolution			= OrderFillResolution.Standard;
+				EntriesPerDirection				= 1;
+				EntryHandling					= EntryHandling.AllEntries;
+				IsExitOnSessionCloseStrategy			= true;
+				ExitOnSessionCloseSeconds			= 30;
+				IsFillLimitOnTouch				= false;
+				MaximumBarsLookBack				= MaximumBarsLookBack.TwoHundredFiftySix;
+				OrderFillResolution				= OrderFillResolution.Standard;
 				Slippage					= 0;
-				StartBehavior				= StartBehavior.WaitUntilFlat;
+				StartBehavior					= StartBehavior.WaitUntilFlat;
 				TimeInForce					= TimeInForce.Gtc;
 				TraceOrders					= true;
-				RealtimeErrorHandling		= RealtimeErrorHandling.StopCancelClose;
-				StopTargetHandling			= StopTargetHandling.PerEntryExecution;
-				BarsRequiredToTrade			= 20;
+				RealtimeErrorHandling				= RealtimeErrorHandling.StopCancelClose;
+				StopTargetHandling				= StopTargetHandling.PerEntryExecution;
+				BarsRequiredToTrade				= 20;
 				// Disable this property for performance gains in Strategy Analyzer optimizations
 				IsInstantiatedOnEachOptimizationIteration	= true;
 				StopLoss					= 8;
 				TakeProfit					= 4;
 				MAPeriod					= 200;
-				BollingerStdDev				= 2;
-				BollingerPeriod				= 14;
-				StopLossCounterTrend		= 4;
-				TakeProfitCounterTrend		= 2;
+				BollingerStdDev					= 2;
+				BollingerPeriod					= 14;
+				StopLossCounterTrend				= 4;
+				TakeProfitCounterTrend				= 2;
 				TrendTrade					= @"TrendTrade";
-				CounterTrendTrade			= @"CounterTrendTrade";
+				CounterTrendTrade				= @"CounterTrendTrade";
 			}
 			else if (State == State.Configure)
 			{
 			}
 			else if (State == State.DataLoaded)
 			{				
-				EMA1						= EMA(Close, Convert.ToInt32(MAPeriod));
-				EMA2						= EMA(Close, Convert.ToInt32(5));
-				Bollinger1					= Bollinger(Close, BollingerStdDev, Convert.ToInt32(BollingerPeriod));
-				Bollinger2					= Bollinger(Close, BollingerStdDev, Convert.ToInt32(BollingerPeriod));
+				EMA1				= EMA(Close, Convert.ToInt32(MAPeriod));
+				EMA2				= EMA(Close, Convert.ToInt32(5));
+				Bollinger1			= Bollinger(Close, BollingerStdDev, Convert.ToInt32(BollingerPeriod));
+				Bollinger2			= Bollinger(Close, BollingerStdDev, Convert.ToInt32(BollingerPeriod));
 				EMA1.Plots[0].Brush 		= Brushes.Goldenrod;
 				EMA2.Plots[0].Brush 		= Brushes.Goldenrod;
 				Bollinger1.Plots[0].Brush 	= Brushes.Lime;
